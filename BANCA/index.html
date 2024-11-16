@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capital Bank</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Pantalla de inicio de sesión -->
+    <div id="login-section">
+      <div class="header">
+        <img src="BANCA/LOGO CAPITAL BANK" alt="Capital Bank" class="logo">
+      </div>
+      <div class="form-container">
+        <h1>Bienvenido a Capital Bank</h1>
+        <p>Por favor ingresa tus credenciales</p>
+        <form id="login-form">
+          <input type="email" id="email" placeholder="Correo Electrónico" required>
+          <input type="password" id="password" placeholder="Contraseña" required>
+          <button type="submit" id="login-btn">Iniciar sesión</button>
+        </form>
+        <p>¿Ya tienes cuenta? <a href="#" id="register-link">Regístrate aquí</a></p>
+      </div>
+    </div>
+
+    <!-- Pantalla de registro -->
+    <div id="register-section" style="display: none;">
+      <div class="form-container">
+        <h1>Crear cuenta</h1>
+        <form id="register-form">
+          <input type="text" id="full-name" placeholder="Nombre Completo" required>
+          <input type="text" id="curp" placeholder="CURP" required maxlength="18">
+          <input type="tel" id="phone" placeholder="Número de Teléfono" required pattern="^[0-9]{10}$">
+          <input type="email" id="register-email" placeholder="Correo Electrónico" required>
+          <input type="password" id="register-password" placeholder="Contraseña" required>
+          <input type="password" id="confirm-password" placeholder="Repetir Contraseña" required>
+          <button type="submit" id="register-btn">Crear cuenta</button>
+        </form>
+        <p>¿Ya tienes cuenta? <a href="#" id="login-link">Iniciar sesión aquí</a></p>
+      </div>
+    </div>
+
+    <!-- Panel del usuario -->
+    <div id="dashboard" style="display: none;">
+      <div class="header">
+        <img src="BANCA/LOGO CAPITAL BANK" alt="Capital Bank" class="logo">
+        <button id="logout-btn" class="btn-logout">Cerrar sesión</button>
+      </div>
+      <div class="dashboard-content">
+        <h1>Bienvenido, <span id="user-name">Usuario</span></h1>
+        <div class="card">
+          <div class="card-header">
+            <h3>Tu tarjeta</h3>
+          </div>
+          <div class="card-body">
+            <img src="https://via.placeholder.com/400x250.png" alt="Imagen de tarjeta" class="card-image">
+            <p><strong>Nombre:</strong> <span id="card-name">Juan Pérez</span></p>
+            <p><strong>Número de tarjeta:</strong> XXXX XXXX XXXX <span id="card-number"></span></p>
+            <p><strong>Saldo disponible:</strong> $<span id="balance">0.00</span></p>
+            <button id="transfer-btn" class="btn-transfer">Realizar Transferencia</button>
+            <div id="error-message" style="display: none; color: red;">Tu cuenta está desactivada. Necesitas activarla.</div>
+          </div>
+        </div>
+        <button class="btn-logout" id="go-to-admin">Panel Administrativo</button>
+      </div>
+    </div>
+
+    <!-- Panel administrativo -->
+    <div id="admin-panel" style="display: none;">
+      <h1>Panel Administrativo</h1>
+      <form id="assign-balance-form">
+        <label for="client-select">Selecciona un cliente:</label>
+        <select id="client-select"></select>
+        <label for="new-balance">Nuevo saldo:</label>
+        <input type="number" id="new-balance" placeholder="Nuevo saldo" required>
+        <button type="submit" id="assign-balance-btn">Asignar saldo</button>
+      </form>
+      <div id="admin-success-message" style="display: none; color: green;">Saldo asignado correctamente</div>
+      <button class="btn-logout" id="back-to-dashboard">Regresar al Dashboard</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
